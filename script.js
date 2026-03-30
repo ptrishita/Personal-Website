@@ -21,6 +21,22 @@
 // });
 
 
+
+// Dark Mode Toggle
+const toggleBtn = document.getElementById('theme-toggle');
+
+toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    // Optional: change icon
+    if (document.body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = '☀️';
+    } else {
+        toggleBtn.textContent = '🌙';
+    }
+});
+
+
 // For Experience Section
 // Open Modal
 function openModal(id) {
@@ -42,6 +58,18 @@ document.addEventListener('click', function (event) {
   });
 });
 
+// Expand bullets inline on click
+document.querySelectorAll('.see-more').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault(); // prevent page jump
+    const parentLi = this.parentElement;
+    const moreText = parentLi.querySelector('.more-text');
+    if (moreText) {
+      moreText.style.display = 'inline';
+      this.style.display = 'none'; // hide the link
+    }
+  });
+});
 
 
 // For Projects Section
@@ -49,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const projects = [
     {
       title: "California Housing Price Prediction",
+      category: "other",
       image: "assets/images/california.jpg",
       description:
         "An end-to-end machine learning regression project that predicts California housing prices using demographic and geographic data. The project walks through the entire ML pipeline including data cleaning, feature engineering, model training, and hyperparameter tuning with Random Forests.",
@@ -78,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Bank Customer Churn Prediction",
+      category: "other",
       image: "assets/images/churn.png",
       description:
         "A predictive analytics project designed to identify which bank customers are likely to churn (leave the bank), using an Artificial Neural Network (ANN). By analyzing demographic, account, and behavioral data, the model helps banks proactively retain high-risk customers.",
@@ -110,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Face Recognition Attendance System",
+      category: "other",
       image: "assets/images/face_recognition.jpg",
       description:
         "An AI-powered attendance management application that uses facial recognition to automate and streamline attendance tracking. The system captures and processes live webcam images or pre-collected datasets to recognize individuals, mark attendance in real time, and maintain secure records.",
@@ -141,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Restaurant Reviews Sentiment Analysis",
+      category: "other",
       image: "assets/images/sentiment.png",
       description:
         "This project analyzes customer reviews of restaurants to determine sentiment polarity—positive, neutral, or negative. By leveraging natural language processing (NLP) techniques and classic machine learning models, it transforms unstructured text data into actionable insights about customer satisfaction.",
@@ -170,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Bike Sharing Algorithm",
+      category: "other",
       image: "assets/images/bike.jpg",
       description:
         "Bike Sharing Algorithm is a regression-based machine learning project developed to predict bike demand based on time, weather, and seasonal data. The model processes and analyzes historical bike-sharing data to forecast the number of bike rentals, offering valuable insights for resource planning and optimization.",
@@ -199,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Loan Approval Classifier",
+      category: "other",
       image: "assets/images/loan.jpg",
       description:
         "Loan Approval Classifier is a machine learning project designed to predict loan approval outcomes using applicant demographic and financial data. The project features extensive data preprocessing, exploratory data analysis (EDA), feature engineering, and model optimization. A Random Forest Classifier is used to build the predictive model, with hyperparameter tuning to enhance performance.",
@@ -229,6 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "PEFT for Text Summarization",
+      category: "other",
       image: "assets/images/peft.png",
       description:
         "This project implements text summarization using the BART model fine-tuned with Parameter-Efficient Fine-Tuning (PEFT) techniques, specifically LoRA (Low-Rank Adaptation). Leveraging the CNN/DailyMail dataset, it demonstrates how to significantly reduce the number of trainable parameters while maintaining performance. The solution is built using Hugging Face Transformers, Datasets, and the PEFT library.",
@@ -260,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "AI-Powered Chatbot using Google Gemini",
+      category: "other",
       image: "assets/images/chatbot.jpg",
       description:
         "An interactive web-based chatbot application powered by Google's Gemini 2.0 Flash model. This lightweight Streamlit app enables real-time, natural language conversations by integrating with the GenerativeAI API. It simulates an intelligent assistant capable of understanding and responding to a wide range of user queries.",
@@ -274,16 +310,17 @@ document.addEventListener('DOMContentLoaded', () => {
         "Implemented error handling for robust user interaction"
       ],
       tools: {
-        languages: ["Python", "Streamlit"],
+        languages: ["Python"],
         aiModel: "Google Gemini 2.0 Flash via GenerativeAI API",
         libraries: ["google-generativeai", "streamlit", "dotenv"],
-        hosting: "Local/Cloud deployment using Streamlit (option for Hugging Face Spaces or GCP)",
+        hosting: "Local/Cloud deployment using Streamlit",
         media: "Text-based input/output; emoji icons for enhanced UX"
       },
       github: "https://github.com/ptrishita/AI-Powered_Chatbot_using_Google_Gemini"
     },
     {
       title: "Winning Space Race (IBM Data Science Capstone)",
+      category: "featured",
       image: "assets/images/space.png",
       description:
         "A comprehensive capstone project from the IBM Data Science specialization that explores SpaceX’s launch performance. The project involves data collection, wrangling, visualization, machine learning, and interactive dashboarding to analyze and predict launch outcomes, helping SpaceX improve mission success rates.",
@@ -319,7 +356,8 @@ document.addEventListener('DOMContentLoaded', () => {
       github: "https://github.com/ptrishita/IBM_Data_Science_Assignment/tree/main/Applied%20Data%20Science%20Capstone"
     },
     {
-      title: "CareerCraft – ATS-Optimized Resume Analyzer using Gemini Model",
+      title: "CareerCraft: ATS-Optimized Resume Analyzer using Gemini Model",
+      category: "featured",
       image: "assets/images/careercraft.png",
       description:
         "CareerCraft is a cutting-edge resume analysis web application that leverages Google's Gemini 2.0 Flash generative AI model to assess resumes against job descriptions using ATS (Applicant Tracking System) logic. It helps job seekers optimize their resumes by identifying missing keywords, estimating match percentages, and generating profile summaries, all in real-time.",
@@ -335,19 +373,122 @@ document.addEventListener('DOMContentLoaded', () => {
         "Developed a feature-rich, visually appealing web app with rich media and interactive elements"
       ],
       tools: {
-        languages: ["Python", "Streamlit"],
+        languages: ["Python"],
         aiModel: "Google Gemini 2.0 Flash via GenerativeAI API",
-        libraries: ["PyPDF2", "streamlit_extras", "PIL", "dotenv"],
+        libraries: ["Streamlit", "streamlit_extras", "PyPDF2", "PIL", "dotenv"],
         hosting: "Local/Cloud Streamlit deployment (potential for GCP or Hugging Face Spaces)",
         media: "PIL for images, PDF parsing for resume text extraction"
       },
       github: "https://github.com/ptrishita/CareerCraft-ATS-Optimized-Resume-Analyzer-using-Gemini-Model",
       demo: "https://youtu.be/E0cgbWYTR9k"
-    }
+    },
+    {
+      title: "Machine Learning Approach for Employee Performance Prediction",
+      category: "other",
+      image: "assets/images/performance_evaluation.webp",
+      description:
+        "A machine learning–based web application that predicts employee productivity using historical workplace data such as working hours, idle time, overtime, and incentives, enabling data-driven decision-making.",
+      goal:
+        "To predict employee performance using regression models and provide actionable insights for talent management, performance improvement, and resource allocation.",
+      skills: [
+        "Applied data preprocessing and feature engineering on real-world datasets",
+        "Implemented and compared multiple regression algorithms (Linear Regression, Random Forest, XGBoost)",
+        "Evaluated model performance using MSE, MAE, and R² metrics",
+        "Selected and deployed the best-performing model (XGBoost)",
+        "Developed a Flask-based web application for prediction",
+        "Handled categorical encoding and data cleaning techniques"
+      ],
+      tools: {
+        languages: ["Python"],
+        aiModel: "Linear Regression, Random Forest Regressor, XGBoost Regressor",
+        libraries: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn"],
+        hosting: "Flask web app",
+        media: "Tabular dataset (garments_worker_productivity.csv)"
+      },
+      github: "https://github.com/ptrishita/Machine-Learning-Approach-For-Employee-Performance-Prediction",
+      demo: "https://youtu.be/lbORl-9Q27w"
+    },
+    {
+      title: "Designing an Autonomous Learning Agent with Checkpoint Verification and Feynman Pedagogy",
+      category: "other",
+      image: "assets/images/learning_agent.png",
+      description:
+        "An AI-powered autonomous learning system that guides users through structured learning pathways using checkpoint-based verification and the Feynman technique, ensuring mastery-based progression and adaptive concept understanding.",
+      goal:
+        "To create a personalized AI tutor that enforces conceptual clarity by verifying understanding at each stage and adapting explanations using simplified, analogy-based teaching methods.",
+      skills: [
+        "Designed stateful AI workflows using LangGraph for structured learning",
+        "Implemented checkpoint-based learning with quantitative verification",
+        "Applied Feynman technique for adaptive explanation and concept simplification",
+        "Built multi-agent research and tutoring system using LangChain",
+        "Integrated LLM APIs with external tools for dynamic content generation",
+        "Developed modular architecture with conditional routing and feedback loops"
+      ],
+      tools: {
+        languages: ["Python"],
+        aiModel: "LLM APIs (Gemini, Groq)",
+        libraries: ["LangGraph", "LangChain", "python-dotenv"],
+        hosting: "Local / cloud-based deployment",
+        media: "Text input, web search data, and knowledge base embeddings"
+      },
+      github: "https://github.com/springboardmentor425/Designing-an-Autonomous-Learning-Agent-with-Checkpoint-Verification-and-Feynman-Pedagogy-/tree/trishita"
+    },
+    {
+      title: "Smart Nutrition & Wellness App using Gemini Flash",
+      category: "featured",
+      image: "assets/images/nutrition.jpg",
+      description:
+        "An AI-powered web application that analyzes food items, diet reports (PDFs), and food images to provide personalized nutrition insights and wellness recommendations using Gemini Flash.",
+      goal:
+        "To deliver personalized, AI-driven nutrition guidance and diet planning by analyzing user inputs, food data, and health reports in real time.",
+      skills: [
+        "Applied prompt engineering for nutrition analysis and personalized recommendations",
+        "Integrated Google Gemini Flash for text, image, and PDF-based analysis",
+        "Built an interactive Streamlit web application with multiple features",
+        "Processed and extracted insights from PDF reports using PyPDF2",
+        "Implemented image-based food analysis using PIL",
+        "Designed modular and scalable UI for real-time user interaction"
+      ],
+      tools: {
+        languages: ["Python"],
+        aiModel: "Google Gemini Flash",
+        libraries: ["Streamlit", "streamlit_extras", "PyPDF2", "PIL", "dotenv"],
+        hosting: "Streamlit web app",
+        media: "Text input, PDF reports, and food images"
+      },
+      github: "https://github.com/ptrishita/Smart-Nutrition-Wellness-App-using-Gemini-Flash"
+    },
+    {
+      title: "ZenFlow: Enlightened Yoga Pose Classification Via Transfer Learning",
+      category: "featured",
+      image: "assets/images/yoga.png",
+      description:
+        "ZenFlow is a deep learning–based web application that classifies yoga poses from images and live webcam video using transfer learning with the Xception architecture.",
+      goal:
+        "To enhance yoga practice and instruction by offering an intuitive, real-time pose classification tool that provides feedback on alignment and posture, supporting both personal practice and research-based analysis.",
+      skills: [
+        "Applied transfer learning with Xception CNN for pose classification",
+        "Preprocessed and augmented image datasets for robust model training",
+        "Built, trained, and evaluated a deep learning model for multi-class pose prediction",
+        "Developed an interactive Flask-based web application with image and webcam support",
+        "Implemented real-time video processing using OpenCV",
+        "Integrated frontend UI using HTML, CSS, and JavaScript for seamless user experience"
+      ],
+      tools: {
+        languages: ["Python"],
+        aiModel: "Xception (pre-trained on ImageNet)",
+        libraries: ["Numpy", "TensorFlow", "Keras", "OpenCV"],
+        hosting: "Flask web app",
+        media: "Images and live webcam video for pose classification"
+      },
+      github: "https://github.com/ptrishita/ZenFlow-Enlightened-Yoga-Pose-Classification-Via-Transfer-Learning",
+      demo: "https://youtu.be/cQk1olFn-aU"
+    }    
     
   ];
 
-  const gallery = document.getElementById('project-gallery');
+  const featuredGallery = document.getElementById('featured-gallery');
+  const otherGallery = document.getElementById('other-gallery');
   const modal = document.getElementById('project-modal');
   const modalBody = document.getElementById('modal-body');
   const closeBtn = document.getElementById('close-btn'); // <-- Using ID here
@@ -362,10 +503,16 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       <h3 class="project-title">${project.title}</h3>
     `;
-    gallery.appendChild(card);
+
+    // 👇 Decide where to put the card
+    if (project.category === "featured") {
+      featuredGallery.appendChild(card);
+    } else {
+      otherGallery.appendChild(card);
+    }
   });
 
-  gallery.addEventListener('click', (e) => {
+  document.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON' && e.target.dataset.index !== undefined) {
       const index = parseInt(e.target.dataset.index);
       const project = projects[index];
@@ -406,6 +553,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
 
 
