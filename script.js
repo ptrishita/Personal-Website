@@ -22,6 +22,21 @@
 
 
 
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+
+  // Change icon
+  if (menuToggle.textContent === '☰') {
+    menuToggle.textContent = '✖';
+  } else {
+    menuToggle.textContent = '☰';
+  }
+});
+
 // Dark Mode Toggle
 const toggleBtn = document.getElementById('theme-toggle');
 
