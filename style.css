@@ -103,12 +103,72 @@ nav ul {
   border-radius: 5px;
 }
 
+/* Hide hamburger on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: 10px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .theme-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}
+
 section {
   width: 100%;
   padding: 60px 0;
   text-align: center;
   border-bottom: 1px solid #ccc;
   box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
 }
 
 :root {
@@ -179,6 +239,26 @@ section {
   background-color: #0056b3;
 }
 
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-text {
+    text-align: center;
+  }
+
+  .profile-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .home-heading {
+    font-size: 2rem;
+  }
+}
+
 
 /* About Section Styling */
 .about-section {
@@ -231,10 +311,15 @@ section {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .skills-section {
+    padding: 20px;
+  }
+
   .skills-section table {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+    font-size: 0.85rem;
   }
 }
 
@@ -364,6 +449,20 @@ section {
   transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+  .experience-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .experience-card {
+    width: 80%;
+    max-width: 300px;
+    padding: 40px 20px;
+    font-size: 18px;
+  }
+}
+
 /* Remove default bullets */
 #experience .modal-content ul,
 #experience .modal-content ul li {
@@ -402,8 +501,8 @@ section {
   background: #fff;
   padding: 30px;
   border-radius: 10px;
-  width: 800px;
-  max-width: none;
+  width: 90%;
+  max-width: 600px;
   max-height: 80%;
   overflow-y: auto;
   position: relative;
@@ -527,6 +626,17 @@ li span {
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card img {
+    height: 180px;
+  }
 }
 
 /* Modal Styles */
@@ -690,6 +800,17 @@ li span {
   margin-bottom: 60px;
 }
 
+@media (max-width: 768px) {
+  .contact-info a {
+    margin: 10px;
+  }
+
+  .contact-info img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 
 /* Footer Section Styling */
 footer {
@@ -750,6 +871,5 @@ textarea {
 .btn.btn-primary:hover {
   background-color: #0056b3;
 } */
-
 
 
