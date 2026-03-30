@@ -311,10 +311,6 @@ section {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .skills-section {
-    padding: 20px;
-  }
-
   .skills-section table {
     display: block;
     overflow-x: auto;
@@ -875,6 +871,5 @@ textarea {
 .btn.btn-primary:hover {
   background-color: #0056b3;
 } */
-
 
 
