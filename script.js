@@ -37,6 +37,22 @@ menuToggle.addEventListener('click', () => {
   }
 });
 
+// Close menu when a link is clicked
+document.querySelectorAll('#nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active'); // close menu
+    menuToggle.textContent = '☰';        // reset icon
+  });
+});
+
+// Close menu when user clicks outside
+document.addEventListener('click', (e) => {
+  if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+    navLinks.classList.remove('active');
+    menuToggle.textContent = '☰';
+  }
+});
+
 // Dark Mode Toggle
 const toggleBtn = document.getElementById('theme-toggle');
 
@@ -568,5 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
 
 
