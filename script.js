@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
       github: "https://github.com/ptrishita/AI-Powered_Chatbot_using_Google_Gemini"
     },
     {
-      title: "Winning Space Race (IBM Data Science Capstone)",
+      title: "SpaceX Landing Prediction (IBM Data Science Capstone)",
       category: "featured",
       image: "assets/images/space.png",
       description:
@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       title: "Machine Learning Approach for Employee Performance Prediction",
-      category: "other",
+      category: "featured",
       image: "assets/images/performance_evaluation.webp",
       description:
         "A machine learning–based web application that predicts employee productivity using historical workplace data such as working hours, idle time, overtime, and incentives, enabling data-driven decision-making.",
@@ -440,6 +440,31 @@ document.addEventListener('DOMContentLoaded', () => {
       demo: "https://youtu.be/lbORl-9Q27w"
     },
     {
+      title: "Smart Nutrition & Wellness App using Gemini Flash",
+      category: "other",
+      image: "assets/images/nutrition.jpg",
+      description:
+        "An AI-powered web application that analyzes food items, diet reports (PDFs), and food images to provide personalized nutrition insights and wellness recommendations using Gemini Flash.",
+      goal:
+        "To deliver personalized, AI-driven nutrition guidance and diet planning by analyzing user inputs, food data, and health reports in real time.",
+      skills: [
+        "Applied prompt engineering for nutrition analysis and personalized recommendations",
+        "Integrated Google Gemini Flash for text, image, and PDF-based analysis",
+        "Built an interactive Streamlit web application with multiple features",
+        "Processed and extracted insights from PDF reports using PyPDF2",
+        "Implemented image-based food analysis using PIL",
+        "Designed modular and scalable UI for real-time user interaction"
+      ],
+      tools: {
+        languages: ["Python"],
+        aiModel: "Google Gemini Flash",
+        libraries: ["Streamlit", "streamlit_extras", "PyPDF2", "PIL", "dotenv"],
+        hosting: "Streamlit web app",
+        media: "Text input, PDF reports, and food images"
+      },
+      github: "https://github.com/ptrishita/Smart-Nutrition-Wellness-App-using-Gemini-Flash"
+    },    
+    {
       title: "Designing an Autonomous Learning Agent with Checkpoint Verification and Feynman Pedagogy",
       category: "other",
       image: "assets/images/learning_agent.png",
@@ -463,31 +488,6 @@ document.addEventListener('DOMContentLoaded', () => {
         media: "Text input, web search data, and knowledge base embeddings"
       },
       github: "https://github.com/springboardmentor425/Designing-an-Autonomous-Learning-Agent-with-Checkpoint-Verification-and-Feynman-Pedagogy-/tree/trishita"
-    },
-    {
-      title: "Smart Nutrition & Wellness App using Gemini Flash",
-      category: "featured",
-      image: "assets/images/nutrition.jpg",
-      description:
-        "An AI-powered web application that analyzes food items, diet reports (PDFs), and food images to provide personalized nutrition insights and wellness recommendations using Gemini Flash.",
-      goal:
-        "To deliver personalized, AI-driven nutrition guidance and diet planning by analyzing user inputs, food data, and health reports in real time.",
-      skills: [
-        "Applied prompt engineering for nutrition analysis and personalized recommendations",
-        "Integrated Google Gemini Flash for text, image, and PDF-based analysis",
-        "Built an interactive Streamlit web application with multiple features",
-        "Processed and extracted insights from PDF reports using PyPDF2",
-        "Implemented image-based food analysis using PIL",
-        "Designed modular and scalable UI for real-time user interaction"
-      ],
-      tools: {
-        languages: ["Python"],
-        aiModel: "Google Gemini Flash",
-        libraries: ["Streamlit", "streamlit_extras", "PyPDF2", "PIL", "dotenv"],
-        hosting: "Streamlit web app",
-        media: "Text input, PDF reports, and food images"
-      },
-      github: "https://github.com/ptrishita/Smart-Nutrition-Wellness-App-using-Gemini-Flash"
     },
     {
       title: "ZenFlow: Enlightened Yoga Pose Classification Via Transfer Learning",
