@@ -570,7 +570,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </ul>
         <p>${links}</p>
       `;
-      modal.style.display = 'block';
+      modal.style.display = 'flex';
     }
   });
 
