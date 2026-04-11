@@ -656,7 +656,6 @@ li span {
 
 .modal .modal-content {
   background-color: #fff;
-  margin: 2.5% auto;
   padding: 30px;
   border-radius: 10px;
   width: 80%;
@@ -877,6 +876,5 @@ textarea {
 .btn.btn-primary:hover {
   background-color: #0056b3;
 } */
-
 
 
